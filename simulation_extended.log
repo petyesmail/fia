@@ -1,0 +1,221 @@
+
+==========================================================================================
+                      EXTENDED SIMULATION: 2000 Rounds, High Traffic                      
+==========================================================================================
+================================================================================
+                            SIMULATION CONFIGURATION                            
+================================================================================
+
+Network Topology:
+  Nodes: 100
+  Area: 100.0x100.0 m²
+  Sink Position: (50.0, 50.0)
+  Communication Range: 35.0 m
+
+Energy Model:
+  Initial Energy: 0.5 J
+  E_elec: 5e-08 J/bit
+  E_fs: 1e-11 J/bit/m²
+  E_mp: 1.3e-15 J/bit/m⁴
+  d0: 87.0 m
+  Packet Size: 4000 bits
+
+DRL Configuration:
+  State Dimension: 20
+  Action Dimension: 6
+  Hidden Dimension: 128
+  Learning Rate: 0.0005
+  Training Episodes: 500
+
+Simulation Settings:
+  Max Rounds: 2000
+  Packets/Round: 30
+  Device: cpu
+  Output Directory: results/extended
+================================================================================
+
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 100
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 35.0 m
+  Links Established: 1625
+  Network Connected: True
+  Average Degree: 32.18
+  Network Density: 0.3218
+================================================================================
+
+==========================================================================================
+                                     Evaluating: SPR                                      
+==========================================================================================
+
+================================================================================
+                                SIMULATING: SPR                                 
+================================================================================
+Algorithm: Shortest Path Routing: Dijkstra-based routing using distance as the sole metric. Baseline algorithm.
+Max Rounds: 2000
+Packets/Round: 30
+--------------------------------------------------------------------------------
+Round    0: Active=100/100, PDR=100.00%, Avg Energy=0.499866 J
+Round  200: Active=100/100, PDR=100.00%, Avg Energy=0.471336 J
+Round  400: Active=100/100, PDR=100.00%, Avg Energy=0.442983 J
+Round  600: Active=100/100, PDR=100.00%, Avg Energy=0.414149 J
+Round  800: Active= 98/100, PDR= 99.98%, Avg Energy=0.393344 J
+Round 1000: Active= 96/100, PDR= 99.97%, Avg Energy=0.372738 J
+Round 1200: Active= 93/100, PDR= 99.96%, Avg Energy=0.354441 J
+Round 1400: Active= 90/100, PDR= 99.95%, Avg Energy=0.334281 J
+Round 1600: Active= 83/100, PDR= 99.93%, Avg Energy=0.325913 J
+Round 1800: Active= 79/100, PDR= 99.93%, Avg Energy=0.302272 J
+--------------------------------------------------------------------------------
+
+Results Summary for SPR:
+
+Lifetime Metrics:
+  Network Lifetime: 2000 rounds
+  First Node Death (FND): 738 rounds
+  Half Nodes Death (HND): 2000 rounds
+  Stability Period: 738 rounds
+  Instability Period: 1262 rounds
+
+Traffic Metrics:
+  Packets Sent: 60000
+  Packets Delivered: 59935
+  Packet Delivery Ratio: 99.89%
+  Average Hop Count: 1.63
+  Average Latency: 1.63 hops
+
+Energy Metrics:
+  Total Energy Consumed: 29.437152 J
+  Energy Efficiency: 2036.03 packets/J
+
+Fairness Metrics:
+  Average Fairness Index: 0.7847
+================================================================================
+
+==========================================================================================
+                                     Evaluating: EAR                                      
+==========================================================================================
+
+================================================================================
+                                SIMULATING: EAR                                 
+================================================================================
+Algorithm: Energy-Aware Routing: Balances distance and energy (weight=0.6)
+Max Rounds: 2000
+Packets/Round: 30
+--------------------------------------------------------------------------------
+Round    0: Active=100/100, PDR=100.00%, Avg Energy=0.499870 J
+Round  200: Active=100/100, PDR=100.00%, Avg Energy=0.472312 J
+Round  400: Active=100/100, PDR=100.00%, Avg Energy=0.444944 J
+Round  600: Active=100/100, PDR=100.00%, Avg Energy=0.417533 J
+Round  800: Active=100/100, PDR=100.00%, Avg Energy=0.390006 J
+Round 1000: Active=100/100, PDR=100.00%, Avg Energy=0.362577 J
+Round 1200: Active=100/100, PDR=100.00%, Avg Energy=0.335654 J
+Round 1400: Active=100/100, PDR=100.00%, Avg Energy=0.308369 J
+Round 1600: Active=100/100, PDR=100.00%, Avg Energy=0.281409 J
+Round 1800: Active=100/100, PDR=100.00%, Avg Energy=0.254340 J
+--------------------------------------------------------------------------------
+
+Results Summary for EAR:
+
+Lifetime Metrics:
+  Network Lifetime: 2000 rounds
+  First Node Death (FND): 2000 rounds
+  Half Nodes Death (HND): 2000 rounds
+  Stability Period: 2000 rounds
+  Instability Period: 0 rounds
+
+Traffic Metrics:
+  Packets Sent: 60000
+  Packets Delivered: 60000
+  Packet Delivery Ratio: 100.00%
+  Average Hop Count: 1.54
+  Average Latency: 1.54 hops
+
+Energy Metrics:
+  Total Energy Consumed: 27.275225 J
+  Energy Efficiency: 2199.80 packets/J
+
+Fairness Metrics:
+  Average Fairness Index: 0.8629
+================================================================================
+
+==========================================================================================
+                                     Evaluating: ALB                                      
+==========================================================================================
+
+================================================================================
+                                SIMULATING: ALB                                 
+================================================================================
+Algorithm: Adaptive Load Balancing: Multi-metric optimization (E=0.4, D=0.3, L=0.3)
+Max Rounds: 2000
+Packets/Round: 30
+--------------------------------------------------------------------------------
+Round    0: Active=100/100, PDR=100.00%, Avg Energy=0.499844 J
+Round  200: Active=100/100, PDR=100.00%, Avg Energy=0.472412 J
+Round  400: Active=100/100, PDR=100.00%, Avg Energy=0.445220 J
+Round  600: Active=100/100, PDR=100.00%, Avg Energy=0.417995 J
+Round  800: Active=100/100, PDR=100.00%, Avg Energy=0.390525 J
+Round 1000: Active=100/100, PDR=100.00%, Avg Energy=0.363209 J
+Round 1200: Active=100/100, PDR=100.00%, Avg Energy=0.336233 J
+Round 1400: Active=100/100, PDR=100.00%, Avg Energy=0.309183 J
+Round 1600: Active=100/100, PDR=100.00%, Avg Energy=0.281683 J
+Round 1800: Active=100/100, PDR=100.00%, Avg Energy=0.254526 J
+--------------------------------------------------------------------------------
+
+Results Summary for ALB:
+
+Lifetime Metrics:
+  Network Lifetime: 2000 rounds
+  First Node Death (FND): 2000 rounds
+  Half Nodes Death (HND): 2000 rounds
+  Stability Period: 2000 rounds
+  Instability Period: 0 rounds
+
+Traffic Metrics:
+  Packets Sent: 60000
+  Packets Delivered: 60000
+  Packet Delivery Ratio: 100.00%
+  Average Hop Count: 1.54
+  Average Latency: 1.54 hops
+
+Energy Metrics:
+  Total Energy Consumed: 27.281078 J
+  Energy Efficiency: 2199.33 packets/J
+
+Fairness Metrics:
+  Average Fairness Index: 0.8699
+================================================================================
+
+==============================================================================================================
+                                         EXTENDED SIMULATION RESULTS                                          
+==============================================================================================================
+
+Algorithm      Lifetime      FND      HND     PDR(%)    AvgHops   Efficiency   Fairness
+--------------------------------------------------------------------------------------------------------------
+SPR                2000      738     2000      99.89       1.63      2036.03     0.7847
+EAR                2000     2000     2000     100.00       1.54      2199.80     0.8629
+ALB                2000     2000     2000     100.00       1.54      2199.33     0.8699
+==============================================================================================================
+
+Results saved to: results/extended/results_extended.json
+
+================================================================================
+                           GENERATING VISUALIZATIONS                            
+================================================================================
+Generating network topology plot...
+Generating comparative metrics plot...
+Generating temporal evolution plot...
+Generating improvement analysis plot...
+Generating energy analysis plot...
+
+All plots saved to: results/extended
+================================================================================
+
+==========================================================================================
+                              EXTENDED SIMULATION COMPLETED                               
+==========================================================================================
+

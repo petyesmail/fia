@@ -1,0 +1,241 @@
+
+==========================================================================================
+                       SCALABILITY ANALYSIS: Multiple Network Sizes                       
+==========================================================================================
+
+==========================================================================================
+                                SCALABILITY TEST: 50 Nodes                                
+==========================================================================================
+================================================================================
+                            SIMULATION CONFIGURATION                            
+================================================================================
+
+Network Topology:
+  Nodes: 50
+  Area: 80.0x80.0 m²
+  Sink Position: (50.0, 50.0)
+  Communication Range: 35.0 m
+
+Energy Model:
+  Initial Energy: 0.5 J
+  E_elec: 5e-08 J/bit
+  E_fs: 1e-11 J/bit/m²
+  E_mp: 1.3e-15 J/bit/m⁴
+  d0: 87.0 m
+  Packet Size: 4000 bits
+
+DRL Configuration:
+  State Dimension: 20
+  Action Dimension: 6
+  Hidden Dimension: 128
+  Learning Rate: 0.0005
+  Training Episodes: 500
+
+Simulation Settings:
+  Max Rounds: 1000
+  Packets/Round: 20
+  Device: cpu
+  Output Directory: results/scale_small
+================================================================================
+
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 80.0 x 80.0 m²
+  Communication Range: 35.0 m
+  Links Established: 592
+  Network Connected: True
+  Average Degree: 23.22
+  Network Density: 0.4643
+================================================================================
+
+Evaluating SPR...
+
+Evaluating EAR...
+
+Evaluating ALB...
+
+================================================================================
+                           GENERATING VISUALIZATIONS                            
+================================================================================
+Generating network topology plot...
+Generating comparative metrics plot...
+Generating temporal evolution plot...
+Generating improvement analysis plot...
+Generating energy analysis plot...
+
+All plots saved to: results/scale_small
+================================================================================
+
+==========================================================================================
+                               SCALABILITY TEST: 100 Nodes                                
+==========================================================================================
+================================================================================
+                            SIMULATION CONFIGURATION                            
+================================================================================
+
+Network Topology:
+  Nodes: 100
+  Area: 100.0x100.0 m²
+  Sink Position: (50.0, 50.0)
+  Communication Range: 35.0 m
+
+Energy Model:
+  Initial Energy: 0.5 J
+  E_elec: 5e-08 J/bit
+  E_fs: 1e-11 J/bit/m²
+  E_mp: 1.3e-15 J/bit/m⁴
+  d0: 87.0 m
+  Packet Size: 4000 bits
+
+DRL Configuration:
+  State Dimension: 20
+  Action Dimension: 6
+  Hidden Dimension: 128
+  Learning Rate: 0.0005
+  Training Episodes: 500
+
+Simulation Settings:
+  Max Rounds: 1000
+  Packets/Round: 20
+  Device: cpu
+  Output Directory: results/scale_medium
+================================================================================
+
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 100
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 35.0 m
+  Links Established: 1625
+  Network Connected: True
+  Average Degree: 32.18
+  Network Density: 0.3218
+================================================================================
+
+Evaluating SPR...
+
+Evaluating EAR...
+
+Evaluating ALB...
+
+================================================================================
+                           GENERATING VISUALIZATIONS                            
+================================================================================
+Generating network topology plot...
+Generating comparative metrics plot...
+Generating temporal evolution plot...
+Generating improvement analysis plot...
+Generating energy analysis plot...
+
+All plots saved to: results/scale_medium
+================================================================================
+
+==========================================================================================
+                               SCALABILITY TEST: 150 Nodes                                
+==========================================================================================
+================================================================================
+                            SIMULATION CONFIGURATION                            
+================================================================================
+
+Network Topology:
+  Nodes: 150
+  Area: 120.0x120.0 m²
+  Sink Position: (50.0, 50.0)
+  Communication Range: 35.0 m
+
+Energy Model:
+  Initial Energy: 0.5 J
+  E_elec: 5e-08 J/bit
+  E_fs: 1e-11 J/bit/m²
+  E_mp: 1.3e-15 J/bit/m⁴
+  d0: 87.0 m
+  Packet Size: 4000 bits
+
+DRL Configuration:
+  State Dimension: 20
+  Action Dimension: 6
+  Hidden Dimension: 128
+  Learning Rate: 0.0005
+  Training Episodes: 500
+
+Simulation Settings:
+  Max Rounds: 1000
+  Packets/Round: 20
+  Device: cpu
+  Output Directory: results/scale_large
+================================================================================
+
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 150
+  Sink Position: (50.0, 50.0)
+  Area: 120.0 x 120.0 m²
+  Communication Range: 35.0 m
+  Links Established: 2551
+  Network Connected: True
+  Average Degree: 33.79
+  Network Density: 0.2253
+================================================================================
+
+Evaluating SPR...
+
+Evaluating EAR...
+
+Evaluating ALB...
+
+================================================================================
+                           GENERATING VISUALIZATIONS                            
+================================================================================
+Generating network topology plot...
+Generating comparative metrics plot...
+Generating temporal evolution plot...
+Generating improvement analysis plot...
+Generating energy analysis plot...
+
+All plots saved to: results/scale_large
+================================================================================
+
+==============================================================================================================
+                                         SCALABILITY ANALYSIS RESULTS                                         
+==============================================================================================================
+
+SMALL Network (50 nodes):
+--------------------------------------------------------------------------------------------------------------
+Algorithm      Lifetime      FND     PDR(%)   Efficiency   Fairness
+--------------------------------------------------------------------------------------------------------------
+SPR                1000      469      99.97      2450.04     0.7207
+EAR                1000     1000     100.00      2537.20     0.8272
+ALB                1000     1000     100.00      2543.22     0.8638
+
+MEDIUM Network (100 nodes):
+--------------------------------------------------------------------------------------------------------------
+Algorithm      Lifetime      FND     PDR(%)   Efficiency   Fairness
+--------------------------------------------------------------------------------------------------------------
+SPR                1000     1000     100.00      2101.23     0.6877
+EAR                1000     1000     100.00      2196.68     0.8422
+ALB                1000     1000     100.00      2205.13     0.8610
+
+LARGE Network (150 nodes):
+--------------------------------------------------------------------------------------------------------------
+Algorithm      Lifetime      FND     PDR(%)   Efficiency   Fairness
+--------------------------------------------------------------------------------------------------------------
+SPR                1000      577      99.99      1621.37     0.5318
+EAR                1000     1000     100.00      1725.38     0.7059
+ALB                1000     1000     100.00      1726.66     0.7245
+
+==========================================================================================
+                              SCALABILITY ANALYSIS COMPLETED                              
+==========================================================================================
+
