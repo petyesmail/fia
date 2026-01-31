@@ -83,8 +83,8 @@ class PGAECR(RoutingAlgorithm):
         
         Returns array of [obj1, obj2, obj3, obj4] to minimize.
         """
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
         
         if len(alive_nodes) == 0:
             return np.array([float('inf')] * 4)
@@ -92,11 +92,11 @@ class PGAECR(RoutingAlgorithm):
         cluster_heads, routes = self._decode_chromosome(chromosome, alive_nodes)
         
         # Objective 1: Minimize total energy consumption (estimated)
-        total_energy = sum(controller.network.nodes[nid].energy for nid in alive_nodes)
+        total_energy = sum(controller.nodes[nid].energy for nid in alive_nodes)
         obj1 = -total_energy  # Minimize means maximize remaining
         
         # Objective 2: Maximize energy balance (minimize variance)
-        energies = [controller.network.nodes[nid].energy for nid in alive_nodes]
+        energies = [controller.nodes[nid].energy for nid in alive_nodes]
         obj2 = np.var(energies) if energies else 0
         
         # Objective 3: Optimize load distribution (Jain's fairness)
@@ -114,8 +114,8 @@ class PGAECR(RoutingAlgorithm):
         """Compute routing table using PGAECR."""
         routing_table = {}
         
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
         
         if len(alive_nodes) == 0:
             return routing_table
@@ -156,12 +156,12 @@ class PGAECR(RoutingAlgorithm):
             # Assign non-CH nodes to nearest CH
             for node_id in alive_nodes:
                 if node_id not in cluster_heads:
-                    node = controller.network.nodes[node_id]
+                    node = controller.nodes[node_id]
                     min_dist = float('inf')
                     nearest_ch = None
                     
                     for ch in cluster_heads:
-                        ch_node = controller.network.nodes[ch]
+                        ch_node = controller.nodes[ch]
                         dist = np.sqrt((node.x - ch_node.x)**2 + (node.y - ch_node.y)**2)
                         if dist < min_dist:
                             min_dist = dist

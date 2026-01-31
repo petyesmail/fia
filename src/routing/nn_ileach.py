@@ -78,39 +78,39 @@ class NN_ILEACH(RoutingAlgorithm):
         Returns:
             Feature vector (5,)
         """
-        node = controller.network.nodes[node_id]
-        sink = controller.network.nodes['SINK']
+        node = controller.nodes[node_id]
+        sink = controller.nodes['SINK']
 
         # Feature 1: Normalized residual energy
         energy_norm = node.energy / node.initial_energy if node.initial_energy > 0 else 0
 
         # Feature 2: Distance to BS (normalized)
         dist_to_bs = np.sqrt((node.x - sink.x) ** 2 + (node.y - sink.y) ** 2)
-        max_dist = np.sqrt(controller.network.config.area_width ** 2 +
-                           controller.network.config.area_height ** 2)
+        max_dist = np.sqrt(controller.config.area_size ** 2 +
+                           controller.config.area_size ** 2)
         dist_bs_norm = dist_to_bs / max_dist if max_dist > 0 else 0
 
         # Feature 3: Node degree
         neighbors = []
-        comm_range = controller.network.config.communication_range
+        comm_range = controller.config.comm_range
 
-        for other_id, other in controller.network.nodes.items():
+        for other_id, other in controller.nodes.items():
             if other_id == node_id or other_id == 'SINK':
                 continue
-            if not other.is_alive():
+            if not other.is_alive:
                 continue
 
             dist = np.sqrt((node.x - other.x) ** 2 + (node.y - other.y) ** 2)
             if dist <= comm_range:
                 neighbors.append(other_id)
 
-        degree_norm = len(neighbors) / max(len(controller.network.nodes) - 2, 1)
+        degree_norm = len(neighbors) / max(len(controller.nodes) - 2, 1)
 
         # Feature 4: Average distance to neighbors
         if neighbors:
             avg_neighbor_dist = np.mean([
-                np.sqrt((node.x - controller.network.nodes[nid].x) ** 2 +
-                        (node.y - controller.network.nodes[nid].y) ** 2)
+                np.sqrt((node.x - controller.nodes[nid].x) ** 2 +
+                        (node.y - controller.nodes[nid].y) ** 2)
                 for nid in neighbors
             ])
             avg_neighbor_dist_norm = avg_neighbor_dist / comm_range
@@ -144,15 +144,15 @@ class NN_ILEACH(RoutingAlgorithm):
         X_train = []
         y_train = []
 
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
 
         if len(alive_nodes) == 0:
             return
 
         # Optimal CHs based on energy
         n_optimal_ch = max(1, int(np.sqrt(len(alive_nodes))))
-        energies = {nid: controller.network.nodes[nid].energy for nid in alive_nodes}
+        energies = {nid: controller.nodes[nid].energy for nid in alive_nodes}
         optimal_chs = sorted(energies.items(), key=lambda x: x[1], reverse=True)[:n_optimal_ch]
         optimal_ch_set = {nid for nid, _ in optimal_chs}
 
@@ -186,8 +186,8 @@ class NN_ILEACH(RoutingAlgorithm):
         if not self.trained:
             self._train_network(controller)
 
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
 
         if len(alive_nodes) == 0:
             return []
@@ -230,8 +230,8 @@ class NN_ILEACH(RoutingAlgorithm):
             return routing_table
 
         # Form clusters (assign to nearest CH)
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
 
         clusters = {ch: [ch] for ch in cluster_heads}
 
@@ -239,12 +239,12 @@ class NN_ILEACH(RoutingAlgorithm):
             if node_id in cluster_heads:
                 continue
 
-            node = controller.network.nodes[node_id]
+            node = controller.nodes[node_id]
             min_dist = float('inf')
             nearest_ch = None
 
             for ch_id in cluster_heads:
-                ch = controller.network.nodes[ch_id]
+                ch = controller.nodes[ch_id]
                 dist = np.sqrt((node.x - ch.x) ** 2 + (node.y - ch.y) ** 2)
 
                 if dist < min_dist:

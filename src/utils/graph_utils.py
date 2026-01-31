@@ -164,7 +164,7 @@ class GraphAttentionLayer:
         """
         concat = np.concatenate([h_i, h_j])
         e = self.leaky_relu(np.dot(concat, self.a))
-        return float(e)
+        return float(np.squeeze(e))
 
     def forward(self, node_features: np.ndarray, adj_matrix: np.ndarray) -> np.ndarray:
         """

@@ -51,8 +51,8 @@ class PEGASIS(RoutingAlgorithm):
         Returns:
             List of node IDs in chain order
         """
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
 
         if len(alive_nodes) == 0:
             return []
@@ -61,14 +61,14 @@ class PEGASIS(RoutingAlgorithm):
         remaining = set(alive_nodes)
 
         # Start from node farthest from sink
-        sink_x = controller.network.nodes['SINK'].x
-        sink_y = controller.network.nodes['SINK'].y
+        sink_x = controller.nodes['SINK'].x
+        sink_y = controller.nodes['SINK'].y
 
         max_dist = 0
         start_node = None
 
         for node_id in remaining:
-            node = controller.network.nodes[node_id]
+            node = controller.nodes[node_id]
             dist = np.sqrt((node.x - sink_x) ** 2 + (node.y - sink_y) ** 2)
             if dist > max_dist:
                 max_dist = dist
@@ -83,10 +83,10 @@ class PEGASIS(RoutingAlgorithm):
             # Find nearest unvisited node
             min_dist = float('inf')
             nearest = None
-            current_node = controller.network.nodes[current]
+            current_node = controller.nodes[current]
 
             for node_id in remaining:
-                node = controller.network.nodes[node_id]
+                node = controller.nodes[node_id]
                 dist = np.sqrt((current_node.x - node.x) ** 2 +
                                (current_node.y - node.y) ** 2)
                 if dist < min_dist:
@@ -122,7 +122,7 @@ class PEGASIS(RoutingAlgorithm):
 
         # Remove dead nodes from chain
         self.chain = [nid for nid in self.chain
-                      if controller.network.nodes[nid].is_alive()]
+                      if controller.nodes[nid].is_alive]
 
         if len(self.chain) == 0:
             return {}

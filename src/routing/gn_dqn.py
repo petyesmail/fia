@@ -61,8 +61,8 @@ class GN_DQN(RoutingAlgorithm):
     
     def _build_graph(self, controller):
         """Build graph representation of network."""
-        alive_nodes = {nid: n for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()}
+        alive_nodes = {nid: n for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive}
         
         if not alive_nodes:
             return None, None
@@ -71,7 +71,7 @@ class GN_DQN(RoutingAlgorithm):
         node_positions = {nid: (n.x, n.y) for nid, n in alive_nodes.items()}
         adj_matrix = GraphBuilder.build_adjacency_matrix(
             node_positions,
-            controller.network.config.communication_range
+            controller.config.comm_range
         )
         
         # Build node features
@@ -80,8 +80,8 @@ class GN_DQN(RoutingAlgorithm):
             nodes_data[nid] = {
                 'energy': node.energy / node.initial_energy if node.initial_energy > 0 else 0,
                 'buffer': 0.0,
-                'x': node.x / controller.network.config.area_width,
-                'y': node.y / controller.network.config.area_height,
+                'x': node.x / controller.config.area_size,
+                'y': node.y / controller.config.area_size,
                 'degree': np.sum(adj_matrix[list(alive_nodes.keys()).index(nid)])
             }
         
@@ -104,13 +104,13 @@ class GN_DQN(RoutingAlgorithm):
         
         # Initialize DQN if needed
         if self.dqn is None:
-            state_dim = self.output_dim + 5  # graph_emb + node_emb
+            state_dim = self.output_dim * 2  # graph_emb (128) + node_emb (128)
             max_neighbors = 10
             self.dqn = DQN(state_dim=state_dim, action_dim=max_neighbors)
         
         # For each node, select next hop
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
         
         for idx, node_id in enumerate(alive_nodes):
             if idx >= len(node_embeddings):
@@ -121,16 +121,16 @@ class GN_DQN(RoutingAlgorithm):
             state = np.concatenate([graph_embedding, node_emb])
             
             # Get neighbors
-            node = controller.network.nodes[node_id]
+            node = controller.nodes[node_id]
             neighbors = []
-            for other_id, other in controller.network.nodes.items():
+            for other_id, other in controller.nodes.items():
                 if other_id == node_id:
                     continue
-                if other_id != 'SINK' and not other.is_alive():
+                if other_id != 'SINK' and not other.is_alive:
                     continue
                 
                 dist = np.sqrt((node.x - other.x)**2 + (node.y - other.y)**2)
-                if dist <= controller.network.config.communication_range or other_id == 'SINK':
+                if dist <= controller.config.comm_range or other_id == 'SINK':
                     neighbors.append(other_id)
             
             if not neighbors:

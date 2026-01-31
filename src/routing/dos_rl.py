@@ -69,7 +69,7 @@ class DOS_RL(RoutingAlgorithm):
     
     def _get_state(self, node_id: str, controller) -> Tuple:
         """Extract state representation."""
-        node = controller.network.nodes[node_id]
+        node = controller.nodes[node_id]
         
         # Energy level (discretized)
         energy_level = int(node.energy / node.initial_energy * 10) if node.initial_energy > 0 else 0
@@ -86,13 +86,13 @@ class DOS_RL(RoutingAlgorithm):
     def _get_alive_neighbors(self, node_id: str, controller) -> List[str]:
         """Get list of alive neighbor nodes."""
         neighbors = []
-        node = controller.network.nodes[node_id]
-        comm_range = controller.network.config.communication_range
+        node = controller.nodes[node_id]
+        comm_range = controller.config.comm_range
         
-        for other_id, other in controller.network.nodes.items():
+        for other_id, other in controller.nodes.items():
             if other_id == node_id or other_id == 'SINK':
                 continue
-            if not other.is_alive():
+            if not other.is_alive:
                 continue
             
             dist = np.sqrt((node.x - other.x) ** 2 + (node.y - other.y) ** 2)
@@ -101,7 +101,7 @@ class DOS_RL(RoutingAlgorithm):
         
         # Always include SINK as potential next hop
         if node_id != 'SINK':
-            sink = controller.network.nodes['SINK']
+            sink = controller.nodes['SINK']
             dist_to_sink = np.sqrt((node.x - sink.x) ** 2 + (node.y - sink.y) ** 2)
             if dist_to_sink <= comm_range:
                 neighbors.append('SINK')
@@ -113,8 +113,8 @@ class DOS_RL(RoutingAlgorithm):
         # Calculate average energy
         total_nodes = 0
         total_energy = 0
-        for nid, node in controller.network.nodes.items():
-            if nid != 'SINK' and node.is_alive():
+        for nid, node in controller.nodes.items():
+            if nid != 'SINK' and node.is_alive:
                 total_nodes += 1
                 total_energy += node.energy / node.initial_energy if node.initial_energy > 0 else 0
         
@@ -176,8 +176,8 @@ class DOS_RL(RoutingAlgorithm):
         self._update_weights(controller)
         
         # For each alive node, select next hop
-        for node_id, node in controller.network.nodes.items():
-            if node_id == 'SINK' or not node.is_alive():
+        for node_id, node in controller.nodes.items():
+            if node_id == 'SINK' or not node.is_alive:
                 continue
             
             state = self._get_state(node_id, controller)
@@ -190,7 +190,7 @@ class DOS_RL(RoutingAlgorithm):
                     
                     # Update Q-values (simplified - would normally happen after receiving rewards)
                     # For now, use heuristic rewards
-                    r_energy = controller.network.nodes[next_hop].energy / controller.network.nodes[next_hop].initial_energy if next_hop != 'SINK' else 1.0
+                    r_energy = controller.nodes[next_hop].energy / controller.nodes[next_hop].initial_energy if next_hop != 'SINK' else 1.0
                     r_load = 1.0 - self.queue_lengths.get(next_hop, 0) / 10.0
                     r_link = 0.9  # Assume good link quality
                     

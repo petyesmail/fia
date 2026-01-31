@@ -69,11 +69,11 @@ class LEACH(RoutingAlgorithm):
         period = int(1.0 / p) if p > 0 else 100
         r_mod = self.round_num % period
 
-        for node_id, node in controller.network.nodes.items():
+        for node_id, node in controller.nodes.items():
             if node_id == 'SINK':
                 continue
 
-            if not node.is_alive():
+            if not node.is_alive:
                 continue
 
             # Check if node has been CH in this period
@@ -101,12 +101,12 @@ class LEACH(RoutingAlgorithm):
 
         # Ensure at least one CH if nodes are alive
         if len(cluster_heads) == 0:
-            alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                           if nid != 'SINK' and n.is_alive()]
+            alive_nodes = [nid for nid, n in controller.nodes.items()
+                           if nid != 'SINK' and n.is_alive]
             if alive_nodes:
                 # Select node with highest energy
                 best_node = max(alive_nodes,
-                                key=lambda nid: controller.network.nodes[nid].energy)
+                                key=lambda nid: controller.nodes[nid].energy)
                 cluster_heads.append(best_node)
 
         return cluster_heads
@@ -124,8 +124,8 @@ class LEACH(RoutingAlgorithm):
         """
         clusters = {ch: [ch] for ch in cluster_heads}
 
-        for node_id, node in controller.network.nodes.items():
-            if node_id == 'SINK' or not node.is_alive():
+        for node_id, node in controller.nodes.items():
+            if node_id == 'SINK' or not node.is_alive:
                 continue
 
             if node_id in cluster_heads:
@@ -136,7 +136,7 @@ class LEACH(RoutingAlgorithm):
             nearest_ch = None
 
             for ch_id in cluster_heads:
-                ch_node = controller.network.nodes[ch_id]
+                ch_node = controller.nodes[ch_id]
                 distance = np.sqrt((node.x - ch_node.x) ** 2 +
                                    (node.y - ch_node.y) ** 2)
 

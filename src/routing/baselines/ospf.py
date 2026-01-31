@@ -49,22 +49,22 @@ class OSPF(RoutingAlgorithm):
         G = nx.Graph()
 
         # Add nodes
-        for node_id, node in controller.network.nodes.items():
-            if node.is_alive() or node_id == 'SINK':
+        for node_id, node in controller.nodes.items():
+            if node.is_alive or node_id == 'SINK':
                 G.add_node(node_id)
 
         # Add edges (within communication range)
-        comm_range = controller.network.config.communication_range
+        comm_range = controller.config.comm_range
 
-        for node1_id, node1 in controller.network.nodes.items():
-            if not node1.is_alive() and node1_id != 'SINK':
+        for node1_id, node1 in controller.nodes.items():
+            if not node1.is_alive and node1_id != 'SINK':
                 continue
 
-            for node2_id, node2 in controller.network.nodes.items():
+            for node2_id, node2 in controller.nodes.items():
                 if node1_id >= node2_id:  # Avoid duplicates
                     continue
 
-                if not node2.is_alive() and node2_id != 'SINK':
+                if not node2.is_alive and node2_id != 'SINK':
                     continue
 
                 # Calculate distance

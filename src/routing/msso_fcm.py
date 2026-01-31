@@ -62,8 +62,8 @@ class MSSO_FCM(RoutingAlgorithm):
         
         Weights: [0.4, 0.2, 0.2, 0.2]
         """
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
         
         if len(alive_nodes) == 0:
             return float('inf')
@@ -77,18 +77,18 @@ class MSSO_FCM(RoutingAlgorithm):
             return float('inf')
         
         total_fitness = 0.0
-        sink = controller.network.nodes['SINK']
+        sink = controller.nodes['SINK']
         
         for ch_id in ch_nodes:
-            node = controller.network.nodes[ch_id]
+            node = controller.nodes[ch_id]
             
             # Energy (normalized)
             energy_score = node.energy / node.initial_energy if node.initial_energy > 0 else 0
             
             # Distance to BS (inverted and normalized)
             dist_bs = np.sqrt((node.x - sink.x)**2 + (node.y - sink.y)**2)
-            max_dist = np.sqrt(controller.network.config.area_width**2 + 
-                               controller.network.config.area_height**2)
+            max_dist = np.sqrt(controller.config.area_size**2 + 
+                               controller.config.area_size**2)
             dist_bs_score = 1.0 / (dist_bs + 1e-6) * max_dist
             
             # Average intra-cluster distance (smaller is better)
@@ -96,19 +96,19 @@ class MSSO_FCM(RoutingAlgorithm):
             count = 0
             for other_id in alive_nodes:
                 if other_id != ch_id:
-                    other = controller.network.nodes[other_id]
+                    other = controller.nodes[other_id]
                     d = np.sqrt((node.x - other.x)**2 + (node.y - other.y)**2)
                     intra_dist += d
                     count += 1
             avg_intra = intra_dist / count if count > 0 else 0
-            intra_score = 1.0 / (avg_intra + 1e-6) * controller.network.config.communication_range
+            intra_score = 1.0 / (avg_intra + 1e-6) * controller.config.comm_range
             
             # Number of neighbors
             neighbors = sum(1 for other_id in alive_nodes 
                             if other_id != ch_id and
-                            np.sqrt((node.x - controller.network.nodes[other_id].x)**2 + 
-                                    (node.y - controller.network.nodes[other_id].y)**2) 
-                            <= controller.network.config.communication_range)
+                            np.sqrt((node.x - controller.nodes[other_id].x)**2 + 
+                                    (node.y - controller.nodes[other_id].y)**2) 
+                            <= controller.config.comm_range)
             neighbor_score = neighbors / len(alive_nodes)
             
             # Combined fitness
@@ -125,8 +125,8 @@ class MSSO_FCM(RoutingAlgorithm):
         """Compute MSSO-FCM routing table."""
         routing_table = {}
         
-        alive_nodes = [nid for nid, n in controller.network.nodes.items()
-                       if nid != 'SINK' and n.is_alive()]
+        alive_nodes = [nid for nid, n in controller.nodes.items()
+                       if nid != 'SINK' and n.is_alive]
         
         if len(alive_nodes) == 0:
             return routing_table
@@ -156,12 +156,12 @@ class MSSO_FCM(RoutingAlgorithm):
             return routing_table
         
         # FCM for cluster formation
-        node_positions = np.array([[controller.network.nodes[nid].x,
-                                     controller.network.nodes[nid].y]
+        node_positions = np.array([[controller.nodes[nid].x,
+                                     controller.nodes[nid].y]
                                     for nid in alive_nodes])
         
-        ch_positions = np.array([[controller.network.nodes[ch].x,
-                                   controller.network.nodes[ch].y]
+        ch_positions = np.array([[controller.nodes[ch].x,
+                                   controller.nodes[ch].y]
                                   for ch in self.cluster_heads])
         
         fcm = FuzzyCMeans(n_clusters=len(self.cluster_heads), m=2.0)
@@ -176,11 +176,11 @@ class MSSO_FCM(RoutingAlgorithm):
         
         # Build MST for inter-cluster routing
         mst = MinimumSpanningTree()
-        ch_pos_dict = {ch: (controller.network.nodes[ch].x, 
-                            controller.network.nodes[ch].y)
+        ch_pos_dict = {ch: (controller.nodes[ch].x, 
+                            controller.nodes[ch].y)
                        for ch in self.cluster_heads}
-        ch_pos_dict['SINK'] = (controller.network.nodes['SINK'].x,
-                                controller.network.nodes['SINK'].y)
+        ch_pos_dict['SINK'] = (controller.nodes['SINK'].x,
+                                controller.nodes['SINK'].y)
         
         mst_edges = mst.build_from_positions(ch_pos_dict)
         

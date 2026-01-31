@@ -96,26 +96,26 @@ class WOAD3QN_RP(RoutingAlgorithm):
         - Link quality (estimated)
         - Historical traffic load
         """
-        node = controller.network.nodes[node_id]
-        sink = controller.network.nodes['SINK']
+        node = controller.nodes[node_id]
+        sink = controller.nodes['SINK']
         
         # Energy
         energy_norm = node.energy / node.initial_energy if node.initial_energy > 0 else 0
         
         # Distance to sink
         dist_sink = np.sqrt((node.x - sink.x)**2 + (node.y - sink.y)**2)
-        max_dist = np.sqrt(controller.network.config.area_width**2 + 
-                           controller.network.config.area_height**2)
+        max_dist = np.sqrt(controller.config.area_size**2 + 
+                           controller.config.area_size**2)
         dist_norm = dist_sink / max_dist if max_dist > 0 else 0
         
         # Neighbors
         neighbors = self._get_neighbors(node_id, controller)
-        neighbor_count = len(neighbors) / max(len(controller.network.nodes) - 2, 1)
+        neighbor_count = len(neighbors) / max(len(controller.nodes) - 2, 1)
         
         # Average neighbor energy
         if neighbors:
-            avg_neighbor_energy = np.mean([controller.network.nodes[nid].energy / 
-                                            controller.network.nodes[nid].initial_energy
+            avg_neighbor_energy = np.mean([controller.nodes[nid].energy / 
+                                            controller.nodes[nid].initial_energy
                                             for nid in neighbors])
         else:
             avg_neighbor_energy = 0
@@ -135,11 +135,11 @@ class WOAD3QN_RP(RoutingAlgorithm):
     def _get_neighbors(self, node_id: str, controller) -> list:
         """Get alive neighbors within range."""
         neighbors = []
-        node = controller.network.nodes[node_id]
-        comm_range = controller.network.config.communication_range
+        node = controller.nodes[node_id]
+        comm_range = controller.config.comm_range
         
-        for other_id, other in controller.network.nodes.items():
-            if other_id == node_id or not other.is_alive():
+        for other_id, other in controller.nodes.items():
+            if other_id == node_id or not other.is_alive:
                 continue
             
             if other_id == 'SINK':
@@ -159,8 +159,8 @@ class WOAD3QN_RP(RoutingAlgorithm):
         
         self._init_networks()
         
-        for node_id, node in controller.network.nodes.items():
-            if node_id == 'SINK' or not node.is_alive():
+        for node_id, node in controller.nodes.items():
+            if node_id == 'SINK' or not node.is_alive:
                 continue
             
             state = self._get_state(node_id, controller)
