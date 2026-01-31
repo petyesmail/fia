@@ -111,6 +111,21 @@ class SensorNode:
         self.lifetime_rounds = 0
         self.death_round = None
 
+    @property
+    def x(self) -> float:
+        """Get x-coordinate (shortcut to position.x)."""
+        return self.position.x
+
+    @property
+    def y(self) -> float:
+        """Get y-coordinate (shortcut to position.y)."""
+        return self.position.y
+
+    @property
+    def energy(self) -> float:
+        """Get current energy (alias for current_energy)."""
+        return self.current_energy
+
     def get_residual_energy_ratio(self) -> float:
         """
         Get residual energy as a ratio of initial energy.
