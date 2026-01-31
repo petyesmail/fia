@@ -1,0 +1,117 @@
+====================================================================================================
+                        شبیه‌سازی جامع و تخصصی الگوریتم‌های مسیریابی WSN-SDN                        
+                Comprehensive Professional Simulation of WSN-SDN Routing Algorithms                 
+====================================================================================================
+
+سطح: دکتری / پروفسوری - Level: PhD / Professorial
+تاریخ: 1404/11/12 - 2026-01-31
+
+
+🚀 شروع سناریو 1: تحلیل چگالی...
+
+====================================================================================================
+                     سناریو 1: تحلیل چگالی شبکه - Scenario 1: Density Analysis                      
+====================================================================================================
+
+
+📊 تعداد نودها: 50 نود
+   Node Count: 50 nodes
+   🔬 LEACH... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 341
+  Network Connected: True
+  Average Degree: 13.37
+  Network Density: 0.2675
+================================================================================
+✓ (FND=N/A, PDR=2.4%)
+   🔬 PEGASIS... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 324
+  Network Connected: True
+  Average Degree: 12.71
+  Network Density: 0.2541
+================================================================================
+✓ (FND=N/A, PDR=1.9%)
+   🔬 OSPF... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 292
+  Network Connected: True
+  Average Degree: 11.45
+  Network Density: 0.2290
+================================================================================
+✓ (FND=N/A, PDR=13.6%)
+   🔬 NN_ILEACH... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 321
+  Network Connected: True
+  Average Degree: 12.59
+  Network Density: 0.2518
+================================================================================
+✓ (FND=N/A, PDR=64.6%)
+   🔬 DOS-RL... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 374
+  Network Connected: True
+  Average Degree: 14.67
+  Network Density: 0.2933
+================================================================================
+✓ (FND=N/A, PDR=2.1%)
+   🔬 MSSO-FCM... 
+================================================================================
+                               NETWORK DEPLOYMENT                               
+================================================================================
+
+Deployment Summary:
+  Sensor Nodes: 50
+  Sink Position: (50.0, 50.0)
+  Area: 100.0 x 100.0 m²
+  Communication Range: 30.0 m
+  Links Established: 306
+  Network Connected: True
+  Average Degree: 12.00
+  Network Density: 0.2400
+================================================================================
+/home/user/fia/src/utils/clustering.py:68: RuntimeWarning: divide by zero encountered in scalar divide
+  membership[i, j] = 1.0 / sum(distances)
+/home/user/fia/src/utils/clustering.py:90: RuntimeWarning: invalid value encountered in divide
+  centers[j] = numerator / denominator
