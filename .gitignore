@@ -26,3 +26,4 @@ Thumbs.db
 # Results (optional - you may want to include these)
 # results/*.png
 # results/*.json
+simulation_output.log
