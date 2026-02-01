@@ -1,0 +1,93 @@
+[
+  {
+    "algorithm": "LEACH",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 3.0,
+    "energy_efficiency": 1498.3257728843464,
+    "total_energy_consumed": 0.6006704391578731,
+    "fairness_index": 1.0,
+    "packets_sent": 900,
+    "packets_delivered": 900
+  },
+  {
+    "algorithm": "PEGASIS",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 0.9833333333333333,
+    "energy_efficiency": 267.75189563393667,
+    "total_energy_consumed": 1.1017662425939132,
+    "fairness_index": 1.0,
+    "packets_sent": 295,
+    "packets_delivered": 295
+  },
+  {
+    "algorithm": "OSPF",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 3.0,
+    "energy_efficiency": 2058.1192150899533,
+    "total_energy_consumed": 0.43729245293531943,
+    "fairness_index": 1.0,
+    "packets_sent": 900,
+    "packets_delivered": 900
+  },
+  {
+    "algorithm": "NN_ILEACH",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 3.0,
+    "energy_efficiency": 1681.5707445523735,
+    "total_energy_consumed": 0.535213878402467,
+    "fairness_index": 1.0,
+    "packets_sent": 900,
+    "packets_delivered": 900
+  },
+  {
+    "algorithm": "DOS_RL",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 0.68,
+    "energy_efficiency": 648.5646637161011,
+    "total_energy_consumed": 0.3145407257175173,
+    "fairness_index": 1.0,
+    "packets_sent": 204,
+    "packets_delivered": 204
+  },
+  {
+    "algorithm": "MSSO_FCM",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 0.42333333333333334,
+    "energy_efficiency": 873.6432612103134,
+    "total_energy_consumed": 0.14536825914968868,
+    "fairness_index": 1.0,
+    "packets_sent": 127,
+    "packets_delivered": 127
+  },
+  {
+    "algorithm": "PGAECR",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 300,
+    "pdr": 100.0,
+    "throughput": 0.18,
+    "energy_efficiency": 1224.1958463141666,
+    "total_energy_consumed": 0.044110589137011276,
+    "fairness_index": 1.0,
+    "packets_sent": 54,
+    "packets_delivered": 54
+  }
+]
