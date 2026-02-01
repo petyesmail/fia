@@ -2,13 +2,13 @@
 شبیه‌سازی جامع و تخصصی الگوریتم‌های مسیریابی WSN-SDN
 Comprehensive Professional Simulation of WSN-SDN Routing Algorithms
 
-این شبیه‌ساز در سطح دکتری شامل:
+این شبیه‌ساز در پیشرفته شامل:
 - تحلیل چگالی شبکه (Density Analysis): 50-250 نود
 - تحلیل ترافیک متغیر (Traffic Analysis): Low, Medium, High
 - مقایسه کامل الگوریتم‌ها با metrics تخصصی
 - تولید نمودارها و تحلیل رفتاری
 
-PhD-Level Simulator Including:
+Advanced Simulator Including:
 - Network Density Analysis: 50-250 nodes
 - Variable Traffic Analysis: Low, Medium, High
 - Complete algorithm comparison with professional metrics
@@ -168,8 +168,8 @@ class ProfessionalMetrics:
 
 class ComprehensiveProfessionalSimulator:
     """
-    شبیه‌ساز جامع سطح دکتری
-    PhD-Level Comprehensive Simulator
+    شبیه‌ساز جامع پیشرفته
+    Advanced Comprehensive Simulator
     """
 
     def __init__(self):

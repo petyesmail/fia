@@ -10,7 +10,7 @@
 ## 🎯 اهداف پروژه | Project Objectives
 
 ### هدف اصلی | Main Objective
-پیاده‌سازی و ارزیابی جامع 9 الگوریتم مسیریابی پیشرفته برای شبکه‌های حسگر بی‌سیم مبتنی بر SDN با تحلیل‌های تخصصی در سطح دکتری.
+پیاده‌سازی و ارزیابی جامع 9 الگوریتم مسیریابی پیشرفته برای شبکه‌های حسگر بی‌سیم مبتنی بر SDN با تحلیل‌های تخصصی در پیشرفته.
 
 Comprehensive implementation and evaluation of 9 advanced routing algorithms for Software-Defined Wireless Sensor Networks with professional PhD-level analysis.
 
@@ -19,7 +19,7 @@ Comprehensive implementation and evaluation of 9 advanced routing algorithms for
 2. ✅ **پیاده‌سازی الگوریتم‌های پیشرفته**: 6 الگوریتم بر اساس تحقیقات 2023-2026
 3. ✅ **مدل‌سازی انرژی تخصصی**: دقت نانوژول
 4. ✅ **سناریوهای جامع**: تحلیل چگالی، ترافیک، مقایسه کامل
-5. ✅ **معیارهای حرفه‌ای**: FND, HND, LND, PDR, Throughput, Delay, etc.
+5. ✅ **معیارهای دقیق**: FND, HND, LND, PDR, Throughput, Delay, etc.
 6. ✅ **تحلیل رفتاری**: توضیح چرایی عملکرد الگوریتم‌ها
 7. ✅ **مستندات جامع**: گزارش‌ها، نمودارها، راهنما
 
@@ -172,7 +172,7 @@ simulation_results/
 
 ---
 
-## 📊 مدل انرژی تخصصی | Professional Energy Model
+## 📊 مدل انرژی تخصصی | Advanced Energy Model
 
 ### پارامترهای First-Order Radio Model
 
@@ -407,7 +407,7 @@ where:
 4. **شبیه‌سازی:**
    - ✅ اجرای موفق همه الگوریتم‌ها
    - ✅ نتایج قابل تکرار
-   - ✅ نمودارهای حرفه‌ای
+   - ✅ نمودارهای دقیق
    - ✅ گزارش‌های خودکار
 
 ### 📊 نتایج کلیدی | Key Results
@@ -592,7 +592,7 @@ This project has successfully **implemented, simulated, and evaluated 9 advanced
 ### دستاوردهای کلیدی | Key Achievements
 
 ✅ **کامل و جامع**: همه الگوریتم‌ها با کیفیت بالا پیاده‌سازی شدند
-✅ **تخصصی**: مدل انرژی نانوژول و معیارهای حرفه‌ای
+✅ **تخصصی**: مدل انرژی نانوژول و معیارهای دقیق
 ✅ **مستند**: بیش از 50 صفحه مستندات دوزبانه
 ✅ **قابل استفاده**: کد تمیز، modular و قابل توسعه
 ✅ **علمی**: آماده برای انتشار در مجلات معتبر
@@ -612,7 +612,7 @@ This project has successfully **implemented, simulated, and evaluated 9 advanced
 
 <div align="center">
 
-**🎓 پروژه سطح دکتری / پروفسوری**
+**🎓 پروژه پیشرفته / پروفسوری**
 **PhD / Professorial Level Project**
 
 **✅ آماده برای انتشار علمی**

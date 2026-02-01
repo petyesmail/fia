@@ -330,7 +330,7 @@ The simulation results show that **NN_ILEACH** and **OSPF** are the top performe
 
 **Project Status:** COMPLETE ✅
 **Ready for:** Academic Publication, Further Research, Extension
-**Quality Level:** Ph.D. Dissertation Standard
+**Quality Level:** Research Project Standard
 
 ---
 

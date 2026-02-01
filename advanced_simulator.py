@@ -1,22 +1,22 @@
 """
-شبیه‌ساز پیشرفته سطح دکتری با تحلیل علمی جامع
-Advanced PhD-Level Simulator with Comprehensive Scientific Analysis
+شبیه‌ساز پیشرفته با تحلیل علمی جامع
+Advanced Simulator with Comprehensive Scientific Analysis
 
 ویژگی‌ها:
 - سناریوهای چندگانه: تعداد نودهای مختلف (50, 100, 150, 200)
 - نمایش شبکه در راندهای مختلف با توجیه علمی
 - مقایسه الگوریتم‌ها با تحلیل رفتاری
-- نمودارهای پیشرفته و حرفه‌ای
-- گزارش جامع برای پذیرش رساله
+- نمودارهای پیشرفته و دقیق
+- گزارش جامع تحقیقاتی
 
 Features:
 - Multiple scenarios: different node counts (50, 100, 150, 200)
 - Network visualization across rounds with scientific justification
 - Algorithm comparison with behavioral analysis
-- Advanced professional plots
-- Comprehensive report for dissertation acceptance
+- Advanced precise plots
+- Comprehensive research report
 
-نویسنده: تیم تحقیقاتی دکتری
+نویسنده: پروژه تحقیقاتی
 تاریخ: 1404/11/13 - 2026-02-01
 """
 
@@ -64,7 +64,7 @@ from src.routing.dos_rl import DOS_RL
 # =============================================================================
 
 class ScientificAnalyzer:
-    """تحلیل‌گر علمی برای توجیه رفتار الگوریتم‌ها"""
+    """Scientific analyzer for algorithm behavior justification"""
 
     @staticmethod
     def analyze_algorithm_behavior(algorithm_name: str, results: dict) -> str:
@@ -170,7 +170,7 @@ class ScenarioResults:
 
 
 class MultiScenarioSimulator:
-    """شبیه‌ساز چند سناریویی با تحلیل علمی"""
+    """Multi-scenario simulator with scientific analysis"""
 
     def __init__(self, output_dir: Path):
         self.output_dir = output_dir
@@ -198,7 +198,7 @@ class MultiScenarioSimulator:
         """اجرای همه سناریوها"""
 
         print("\n" + "="*80)
-        print("شبیه‌ساز پیشرفته چند سناریویی - Advanced Multi-Scenario Simulator".center(80))
+        print("پیشرفته چند سناریویی - Advanced Multi-Scenario Simulator".center(80))
         print("="*80)
 
         for scenario_idx, scenario in enumerate(self.scenarios, 1):
@@ -655,7 +655,7 @@ scientific justification for performance differences**.
 
         report.append(f"\n\n---\n**تاریخ تولید:** 1404/11/13 - 2026-02-01\n")
         report.append(f"**نویسنده:** تیم تحقیقاتی دکتری\n")
-        report.append(f"**وضعیت:** آماده برای پذیرش رساله\n")
+        report.append(f"**وضعیت:** آماده برای ارائه\n")
 
         # Save report
         report_text = "\n".join(report)
