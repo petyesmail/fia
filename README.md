@@ -3,13 +3,13 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Academic-green.svg)]()
-[![Status](https://img.shields.io/badge/Status-PhD%20Level-success.svg)]()
+[![Status](https://img.shields.io/badge/Status-Advanced-success.svg)]()
 
-> **پروژه تحقیقاتی سطح دکتری** | **PhD-Level Research Project**
+> **پروژه تحقیقاتی پیشرفته** | **Advanced Research Project**
 >
 > پیاده‌سازی و ارزیابی جامع 9 الگوریتم مسیریابی پیشرفته برای WSN-SDN با تحلیل‌های تخصصی
 >
-> Comprehensive implementation and evaluation of 9 advanced routing algorithms for WSN-SDN with professional analysis
+> Comprehensive implementation and evaluation of 9 advanced routing algorithms for WSN-SDN with precise analysis
 
 ---
 
@@ -35,8 +35,8 @@ This project provides a comprehensive framework for evaluating and comparing rou
 
 ### 🎓 سطح تحقیق | Research Level
 
-- **سطح:** دکتری / پروفسوری
-- **Level:** PhD / Professorial
+- **سطح:** پیشرفته
+- **Level:** Advanced
 - **کیفیت:** آماده برای انتشار علمی
 - **Quality:** Publication-ready
 
@@ -132,7 +132,7 @@ fia/
 │   ├── simulation/                # شبیه‌ساز
 │   │   └── simulator.py           # شبیه‌ساز شبکه
 │   └── config.py                  # تنظیمات
-├── comprehensive_professional_simulation.py  # شبیه‌ساز جامع
+├── comprehensive_precise_simulation.py  # شبیه‌ساز جامع
 ├── run_all_algorithms.py         # اجرای سریع
 ├── simulation_results/            # نتایج و نمودارها
 └── docs/                          # مستندات
@@ -182,14 +182,14 @@ python run_all_algorithms.py
 اجرای کامل با 3 سناریو (چگالی، ترافیک، مقایسه):
 
 ```bash
-python comprehensive_professional_simulation.py
+python comprehensive_precise_simulation.py
 ```
 
 این شبیه‌سازی شامل:
 - ✅ تحلیل چگالی: 50, 100, 150, 200, 250 نود
 - ✅ تحلیل ترافیک: Low, Medium, High
 - ✅ مقایسه کامل با همه معیارها
-- ✅ تولید نمودارهای حرفه‌ای
+- ✅ تولید نمودارهای دقیق
 - ✅ گزارش جامع تحلیلی
 
 ---
@@ -291,7 +291,7 @@ python comprehensive_professional_simulation.py
 
 **تیم تحقیقاتی**
 - تاریخ: 1404/11/12 - 2026-01-31
-- سطح: دکتری / پروفسوری
+- سطح: پیشرفته
 - وضعیت: آماده برای انتشار علمی
 
 ---

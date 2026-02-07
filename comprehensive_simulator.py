@@ -1,12 +1,12 @@
 """
-شبیه‌ساز جامع سطح دکتری با نمایش شبکه و تحلیل‌های پیشرفته
-PhD-Level Comprehensive Simulator with Network Visualization and Advanced Analysis
+شبیه‌ساز جامع با نمایش شبکه و تحلیل‌های پیشرفته
+Comprehensive Simulator with Network Visualization and Advanced Analysis
 
 این شبیه‌ساز شامل:
 - نمایش بصری شبکه در راندهای مختلف
 - تحلیل‌های آماری پیشرفته
 - سناریوهای چندگانه (Density, Traffic)
-- نمودارهای حرفه‌ای (15+ plots)
+- نمودارهای دقیق (15+ plots)
 - گزارش جامع علمی
 
 This simulator includes:
@@ -125,7 +125,7 @@ class AlgorithmResults:
 # =============================================================================
 
 class EnhancedNetworkSimulator:
-    """PhD-Level Network Simulator with Full Instrumentation"""
+    """Advanced Network Simulator with Full Instrumentation"""
 
     def __init__(self, config: SimulationConfig):
         self.config = config
@@ -693,7 +693,7 @@ class StatisticalAnalyzer:
 def main():
     """Main execution function"""
     print("\n" + "="*80)
-    print("شبیه‌ساز جامع سطح دکتری - PhD-Level Comprehensive Simulator".center(80))
+    print("شبیه‌ساز جامع پیشرفته - Advanced Comprehensive Simulator".center(80))
     print("="*80)
 
     # Create output directory
@@ -803,7 +803,7 @@ def main():
     print(f"  • comprehensive_algorithm_comparison.png")
     print(f"  • RESULTS_SUMMARY.md")
     print(f"  • phd_simulation_results.json")
-    print(f"\n✅ PhD-Level Comprehensive Simulation Complete!")
+    print(f"\n✅ Advanced Comprehensive Simulation Complete!")
 
 
 if __name__ == "__main__":

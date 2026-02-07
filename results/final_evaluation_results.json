@@ -1,0 +1,57 @@
+[
+  {
+    "algorithm": "LEACH",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 500,
+    "pdr": 100.0,
+    "total_packets_sent": 1500,
+    "total_packets_delivered": 1500,
+    "energy_efficiency": 1506.8991218009003,
+    "total_energy_consumed": 0.9954216432267509
+  },
+  {
+    "algorithm": "PEGASIS",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 500,
+    "pdr": 100.0,
+    "total_packets_sent": 511,
+    "total_packets_delivered": 511,
+    "energy_efficiency": 265.75209914749604,
+    "total_energy_consumed": 1.9228446422031384
+  },
+  {
+    "algorithm": "OSPF",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 500,
+    "pdr": 100.0,
+    "total_packets_sent": 1500,
+    "total_packets_delivered": 1500,
+    "energy_efficiency": 2017.9134082767434,
+    "total_energy_consumed": 0.7433421046946554
+  },
+  {
+    "algorithm": "NN_ILEACH",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 500,
+    "pdr": 100.0,
+    "total_packets_sent": 1500,
+    "total_packets_delivered": 1500,
+    "energy_efficiency": 1451.9730003315872,
+    "total_energy_consumed": 1.0330770611143905
+  },
+  {
+    "algorithm": "DOS_RL",
+    "fnd": null,
+    "hnd": null,
+    "lnd": 500,
+    "pdr": 100.0,
+    "total_packets_sent": 48,
+    "total_packets_delivered": 48,
+    "energy_efficiency": 566.8952505246483,
+    "total_energy_consumed": 0.08467172719400475
+  }
+]

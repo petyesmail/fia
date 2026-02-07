@@ -1,8 +1,8 @@
 """
-ارزیابی جامع و حرفه‌ای الگوریتم‌های مسیریابی WSN-SDN
+ارزیابی جامع و دقیق الگوریتم‌های مسیریابی WSN-SDN
 Professional Comprehensive Evaluation of WSN-SDN Routing Algorithms
 
-این اسکریپت اجرای واقعی و کامل همه الگوریتم‌ها با خروجی‌های گرافیکی حرفه‌ای
+این اسکریپت اجرای واقعی و کامل همه الگوریتم‌ها با خروجی‌های گرافیکی دقیق
 This script performs real execution of all algorithms with professional graphical outputs
 
 نویسنده: تیم تحقیقاتی
@@ -75,7 +75,7 @@ class AlgorithmResult:
 
 
 class ProfessionalEvaluator:
-    """ارزیاب حرفه‌ای الگوریتم‌ها"""
+    """ارزیاب پیشرفته الگوریتم‌ها"""
 
     def __init__(self, output_dir: str = "results"):
         self.output_dir = Path(output_dir)
@@ -230,7 +230,7 @@ class ProfessionalEvaluator:
 
     def generate_plots(self, results: List[AlgorithmResult]):
         """
-        تولید نمودارهای حرفه‌ای
+        تولید نمودارهای دقیق
         Generate professional plots
         """
         print(f"\n{'='*80}")
@@ -554,7 +554,7 @@ def main():
     Main evaluation execution
     """
     print("="*100)
-    print("ارزیابی جامع و حرفه‌ای الگوریتم‌های مسیریابی WSN-SDN".center(100))
+    print("ارزیابی جامع و دقیق الگوریتم‌های مسیریابی WSN-SDN".center(100))
     print("Professional Comprehensive Evaluation of WSN-SDN Routing Algorithms".center(100))
     print("="*100)
     print("\nتاریخ: 1404/11/12 - 2026-01-31")

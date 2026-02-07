@@ -1,8 +1,8 @@
-# طرح توسعه علمی هدفمند برای پذیرش رساله دکتری
-# Targeted Scientific Development Plan for PhD Dissertation Acceptance
+# طرح توسعه علمی هدفمند پروژه
+# Targeted Scientific Development Plan for Research Project
 
 **تاریخ تحلیل:** 1404/11/13 - 2026-02-01
-**سطح هدف:** دکتری (PhD-Level)
+**سطح هدف:** پیشرفته (Advanced)
 **وضعیت:** طراحی توسعه پس از تحلیل جامع
 
 ---
@@ -79,9 +79,9 @@
 **ارائه یک چارچوب جامع ارزیابی الگوریتم‌های مسیریابی SD-WSN با:**
 1. پیاده‌سازی کامل و صحیح همه الگوریتم‌ها
 2. تحلیل‌های آماری معتبر با توجیه علمی
-3. نمایش‌های بصری حرفه‌ای و قابل فهم
+3. نمایش‌های بصری دقیق و قابل فهم
 4. مقایسه چند-سناریویی با توجیه علمی
-5. مستندات کامل برای پذیرش رساله
+5. مستندات کامل برای ارائه پروژه
 
 ### اهداف خاص
 
@@ -114,7 +114,7 @@
 
 ---
 
-## 🔬 معیارهای پذیرش رساله | Dissertation Acceptance Criteria
+## 🔬 معیارهای ارائه پروژه | Project Acceptance Criteria
 
 ### معیارهای علمی | Scientific Criteria
 
@@ -382,7 +382,7 @@ Configurations:
 **فایل جدید:** `DISSERTATION_FINAL_REPORT.md`
 
 **ویژگی‌ها:**
-1. ✅ ساختار رساله کامل
+1. ✅ ساختار پروژه کامل
 2. ✅ فرمول‌های ریاضی با LaTeX
 3. ✅ تمام جداول و نمودارها
 4. ✅ تحلیل‌های عمیق
@@ -568,7 +568,7 @@ class EnhancedEnergyModel:
 
 ```python
 class EnhancedNetworkSimulator:
-    """PhD-Level Network Simulator with Full Instrumentation"""
+    """Advanced Network Simulator with Full Instrumentation"""
 
     def __init__(self, config: SimulationConfig):
         self.config = config
@@ -630,10 +630,10 @@ class EnhancedNetworkSimulator:
 
 ## 📝 نتیجه‌گیری طرح توسعه
 
-### برای پذیرش رساله دکتری باید:
+### برای ارائه پروژه دکتری باید:
 
 1. ✅ **تکمیل پیاده‌سازی‌ها:** WOAD3QN-RP و GN-DQN به صورت کامل
-2. ✅ **افزودن نمایش‌های بصری:** 12+ نمودار حرفه‌ای
+2. ✅ **افزودن نمایش‌های بصری:** 12+ نمودار دقیق
 3. ✅ **تحلیل‌های آماری:** Significance testing, CIs, Effect sizes
 4. ✅ **سناریوهای چندگانه:** Density, Traffic, Heterogeneity, Failures
 5. ✅ **مستندات جامع:** گزارش 100+ صفحه با فرمول‌ها و تحلیل
@@ -645,7 +645,7 @@ class EnhancedNetworkSimulator:
 - **سناریوها:** 1 هفته
 - **مستندات:** 3 روز
 
-**جمع کل:** ~5 هفته برای رساله کامل
+**جمع کل:** ~5 هفته برای پروژه کامل
 
 ---
 
@@ -661,7 +661,7 @@ class EnhancedNetworkSimulator:
 6. گزارش نهایی
 
 **فایل‌های مورد نیاز:**
-- `phd_comprehensive_simulator.py` - شبیه‌ساز اصلی
+- `comprehensive_simulator.py` - شبیه‌ساز اصلی
 - `network_visualizer.py` - ماژول visualization
 - `statistical_analyzer.py` - تحلیل‌های آماری
 - `DISSERTATION_RESULTS.md` - گزارش نهایی

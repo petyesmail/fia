@@ -219,7 +219,7 @@ python quick_evaluation.py
 
 <div align="center">
 
-**🎓 پروژه سطح دکتری / PhD-Level Project**
+**🎓 پروژه پیشرفته / Advanced Project**
 
 **✅ نتایج قابل تکرار / Reproducible Results**
 
